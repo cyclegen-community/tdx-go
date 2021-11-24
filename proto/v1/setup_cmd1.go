@@ -1,13 +1,13 @@
 package v1
 
 import (
-	"github.com/cyclegen/tdx-go/proto"
-	"github.com/cyclegen/tdx-go/utils"
+	"github.com/cyclegen-community/tdx-go/proto"
+	"github.com/cyclegen-community/tdx-go/utils"
 )
 
 // 请求包结构
 type SetupCmd1Request struct {
-	Cmd []byte `struc:"[13]byte";json:"cmd"`
+	Cmd []byte `struc:"[13]byte" json:"cmd"`
 }
 
 // 请求包序列化输出

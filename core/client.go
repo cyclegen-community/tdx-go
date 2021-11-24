@@ -2,8 +2,8 @@ package core
 
 import (
 	"errors"
-	"github.com/cyclegen/tdx-go/proto"
-	"github.com/cyclegen/tdx-go/utils"
+	"github.com/cyclegen-community/tdx-go/proto"
+	"github.com/cyclegen-community/tdx-go/utils"
 	"log"
 	"net"
 	"strconv"

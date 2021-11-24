@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/cyclegen/tdx-go/config"
-	"github.com/cyclegen/tdx-go/core"
-	"github.com/cyclegen/tdx-go/proto"
-	"github.com/cyclegen/tdx-go/proto/v1"
+	"github.com/cyclegen-community/tdx-go/config"
+	"github.com/cyclegen-community/tdx-go/core"
+	"github.com/cyclegen-community/tdx-go/proto"
+	"github.com/cyclegen-community/tdx-go/proto/v1"
 	"log"
 )
 

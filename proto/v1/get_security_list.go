@@ -2,9 +2,9 @@ package v1
 
 // 获取股票列表
 import (
-	"github.com/cyclegen/tdx-go/proto"
-	"github.com/cyclegen/tdx-go/utils"
-	"github.com/cyclegen/tdx-go/utils/parse"
+	"github.com/cyclegen-community/tdx-go/proto"
+	"github.com/cyclegen-community/tdx-go/utils"
+	"github.com/cyclegen-community/tdx-go/utils/parse"
 	"log"
 )
 

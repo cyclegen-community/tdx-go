@@ -2,7 +2,7 @@ package config
 
 import (
 	"encoding/json"
-	"github.com/cyclegen/tdx-go/utils"
+	"github.com/cyclegen-community/tdx-go/utils"
 	"github.com/sparrc/go-ping"
 	"io/ioutil"
 	"log"
@@ -52,20 +52,20 @@ func GetBestStockQuotesServer() Server {
 	wg := sync.WaitGroup{}
 	for idx := range srvs {
 		wg.Add(1)
-		id := idx
-		go func() {
+		go func(id int) {
+			defer wg.Done()
 			if srvs[id].IP == "" {
 				return
 			}
 			pinger, err := ping.NewPinger(srvs[id].IP)
 			if err != nil {
-				panic(err)
+				log.Println(err)
+				return
 			}
 			pinger.SetPrivileged(true)
 			pinger.Count = 5
 			pinger.Timeout = time.Second
 			pinger.Run() // blocks until finished
-			defer wg.Done()
 
 			stats := pinger.Statistics() // get send/receive/rtt stats
 
@@ -77,7 +77,7 @@ func GetBestStockQuotesServer() Server {
 				avgRtt = stats.AvgRtt.Nanoseconds()
 			}
 			results.Store(srvs[id], avgRtt)
-		}()
+		}(idx)
 	}
 	wg.Wait()
 	results.Range(func(key, value interface{}) bool {
